@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<style>
+h1 { color: red;
+}
+
+</style>
+<%= render 'layouts/errors' %>
+
+<% if signed_in? %>
+  <h1><%= current_user.name %></h1>
+  <%= button_to "Log Out", session_url, method: :delete %>
+<% end %>
+
+
+
 <%= yield %>
 
 </body>

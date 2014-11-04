@@ -1,0 +1,18 @@
+<h3>New Goal</h3>
+
+<form action="<%= user_goals_url(current_user) %>" method="post">
+  <%= auth_token %>
+
+  <label>Title
+    <input name="goal[title]"
+            type="text"
+            value="<%= @goal.title %>"></label>
+
+  <label>Description
+    <input name="goal[description]"
+           type="text"
+           value="<%= @goal.description %>"></label>
+
+  <input type="submit" value="Create New Goal">
+
+</form>

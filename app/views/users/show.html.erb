@@ -1,0 +1,18 @@
+<%= button_to "Create Goal", new_user_goal_url(current_user), method: :get %>
+
+<ul>
+  <% @goals.each do |goal| %>
+    <li><h2><%= goal.title %></h2></li>
+    <%= button_to "Edit Goal", edit_goal_url(goal), method: :get %>
+    <%= button_to "Delete", goal_url(goal), method: :delete %>
+    <% button_val = goal.public ? "Make Private" : "Make Public" %>
+    <%= button_to button_val, toggle_privacy_goal_url(goal) %>
+    <% if goal.complete %>
+      Complete!
+    <% else %>
+      <%= button_to "Completed", toggle_completion_goal_url(goal) %>
+    <% end %>
+    <li><%= goal.description %></li>
+    <br>
+  <% end %>
+</ul>
